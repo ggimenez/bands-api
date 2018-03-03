@@ -8,7 +8,8 @@
     "ejs": "*",
     "express": "*",
     "sqlite": "*",
-    "bluebird": "*"  
+    "bluebird": "*",
+    "swagger-ui-express": "latest"  
   },
   "license": "LGPL-3.0",
   "bugs": {

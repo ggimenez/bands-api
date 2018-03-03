@@ -3,6 +3,11 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
+
+//swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 /* Database configuration */
 const database = require('./app/config/dbconfig');
 
@@ -22,3 +27,6 @@ app.use(bodyParser.json());
 /* Router configuration */
 const REST_API_ROOT = '/api';
 app.use(REST_API_ROOT, require('./app/routes/router'));
+
+//swagger configuration
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
