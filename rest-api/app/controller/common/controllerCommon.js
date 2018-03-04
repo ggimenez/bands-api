@@ -17,9 +17,33 @@ class controllerCommon {
         }
     }
 
+    createSuccess(res) {
+        
+        /* res.status(201); // Created
+            //res.json(result);
+         res.location('/customers/' + 4);*/
+         return res;
+        console.log('en createSuccess... :');
+        return () => {
+            res.status(201); // Created
+            //res.json(result);
+            res.location('/customers/' + 4);
+        }
+    }
+    
+    deleteSuccess(res) {
+        
+        return () => {
+            console.log('en return deleteSuccess...');
+            res.status(204); // A successful DELETE, with no further information. 204 No Content
+        }
+    }
+    
+    
+    
     editSuccess(res) {
         return () => {
-            res.status(201); // Created/Updated/Deleted
+            res.status(200); // Created/Updated/Deleted
             res.json({});
         }
     }

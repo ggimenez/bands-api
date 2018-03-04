@@ -7,6 +7,8 @@ const ControllerCommon = require('./common/controllerCommon');
 /* Load Band entity */
 const Band = require('../model/band');
 
+const CircularJSON = require('circular-json');
+
 /**
  * Band Controller
  */
@@ -76,6 +78,8 @@ class BandController {
      * returns database insertion status
      */
     create(req, res) {
+        
+        //console.log('res: ' + CircularJSON.stringify(res));
         let band = new Band();
        
         band.name = req.body.name;
@@ -97,7 +101,7 @@ class BandController {
      */
     deleteById(req, res) {
         let name = req.params.name;
-
+            
         this.bandDao.deleteById(name)
             .then(this.common.editSuccess(res))
             .catch(this.common.serverError(res));

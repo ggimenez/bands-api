@@ -60,10 +60,8 @@ class Common {
                     );
                 } else if (row && row.found === 1) {
                     resolve(true);
-                } else {
-                    reject(
-                        new DaoError(21, "Entity not found")
-                    );
+                } else if(row && row.found === 0) {
+                    resolve(false);
                 }
             })
         });
@@ -91,6 +89,47 @@ class Common {
             })
         });
     }
+    
+    insert(sqlRequest, sqlParams) {
+        return new Promise(function (resolve, reject) {                
+            
+            let stmt = database.db.prepare(sqlRequest);
+        
+            stmt.run(sqlParams, function (err) {
+                
+                if (this.changes === 1) {
+                    resolve(true);
+                } else {
+                    console.log(err);
+                    reject(
+                        new DaoError(11, "Invalid arguments")
+                    )
+                }
+            })
+        });
+    }
+    
+    
+    delete(sqlRequest, sqlParams) {
+        return new Promise(function (resolve, reject) {                
+            
+            let stmt = database.db.prepare(sqlRequest);
+        
+            stmt.run(sqlParams, function (err) {
+                
+                if (this.changes === 1) {
+                    resolve(true);
+                } else {
+                    console.log(err);
+                    reject(
+                        new DaoError(11, "No se pudo borrar registro")
+                    )
+                }
+            })
+        });
+    }
+    
+    
     
     update(sqlRequest, sqlParams){
          

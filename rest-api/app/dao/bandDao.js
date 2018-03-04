@@ -87,7 +87,21 @@ class BandDao {
             $manager: band.manager,
             $description: band.description
         };
-        return this.common.run(sqlRequest, sqlParams);
+        return this.common.insert(sqlRequest, sqlParams);
+        
+        /*let sqlRequest = "INSERT into band (name, gender, manager, description) " +
+            "VALUES ($name, $gender, $manager, $description)";
+        let sqlParams = {
+            $name: band.name,
+            $gender: band.gender,
+            $manager: band.manager,
+            $description: band.description
+        };
+        
+        return  this.common.insert(sqlRequest, sqlParams).then(res => {
+            return band;
+        });*/
+        
     };
 
    
@@ -99,7 +113,7 @@ class BandDao {
     deleteById(name) {
         let sqlRequest = "DELETE FROM band WHERE name=$name";
         let sqlParams = {$name: name};
-        return this.common.run(sqlRequest, sqlParams);
+        return this.common.delete(sqlRequest, sqlParams);
     };
 
     /**

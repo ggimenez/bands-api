@@ -25,15 +25,15 @@ router.get('/', function (req, res) {
     bandController.findAll(res);
 });
 
-router.put('/update/:name', function (req, res) {
+router.put('/:name', function (req, res) {
     bandController.update(req, res);
 });
 
-router.post('/create', function (req, res) {
+router.post('/', function (req, res) {
     bandController.create(req, res);
 });
 
-router.delete('/delete/:name', function (req, res) {
+router.delete('/:name', function (req, res) {
     bandController.deleteById(req, res);
 });
 
