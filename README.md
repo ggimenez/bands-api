@@ -2,7 +2,6 @@
 
 Node.js REST API of music rock bands
 
-## Usage
 
 ### Install:
 
@@ -14,10 +13,12 @@ Node.js REST API of music rock bands
 ### Testing:
     $ npm test 
 
+### Postman Collection
+
+Available in a file edge_test.postman_collection.json .
+
 ### Swagger docs
     at running at http://localhost:3000/api-doc   
 
-## Requirements
 
-* Node v0.10.32 or above
 
