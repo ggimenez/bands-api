@@ -6,7 +6,7 @@
     "title": "Bands API"
   },
   "host": "localhost:3000",
-  "basePath": "/v1",
+  "basePath": "/api",
   "schemes": [
     "http"
   ],
@@ -67,7 +67,7 @@
           "200": {
             "description": "Band",
             "schema": {
-              "$ref": "#/definitions/Band"
+              "$ref": "#/definitions/band"
             }
           },
           "404": {
