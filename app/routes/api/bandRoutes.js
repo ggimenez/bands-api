@@ -17,7 +17,7 @@ responseOK = function(result, res) {
 };
 
 responseDeleteSuccessful = function(result, res) {
-    res.status(204).send(); // Found
+    res.status(204).send();
 };
 
 
@@ -154,11 +154,7 @@ router.post('/', function (req, res) {
         )
         .catch(
             (error) => {
-                if(error.errorCode === 21){
-                    responseNotFoundError(error, res); 
-                }else{
-                    responseInternalError(error, res);     
-                }
+                responseInternalError(error, res); 
             }
         );
 });
