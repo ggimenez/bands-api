@@ -1,0 +1,171 @@
+{
+	"variables": [],
+	"info": {
+		"name": "edge_test",
+		"_postman_id": "7e2a29f8-7fba-a3d8-ec3e-a0c745ee7e69",
+		"description": "test para edge movileideas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/bands/count",
+			"request": {
+				"url": "http://localhost:3000/api/bands/count",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"oasis\",\n\t\"gender\":\"rock\"\n}"
+				},
+				"description": "Count of number of Bands"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/bands/exists/Metallica",
+			"request": {
+				"url": "http://localhost:3000/api/bands/exists/Metallica",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"oasis\",\n\t\"gender\":\"rock\"\n}"
+				},
+				"description": "Find if a band exists"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/bands/exists/NotExists",
+			"request": {
+				"url": "http://localhost:3000/api/bands/exists/NotExists",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"oasis\",\n\t\"gender\":\"rock\"\n}"
+				},
+				"description": "Find if a band exists, not for this one."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/bands/Metallica",
+			"request": {
+				"url": "http://localhost:3000/api/bands/Metallica",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"oasis\",\n\t\"gender\":\"rock\"\n}"
+				},
+				"description": "Get a Band"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/bands",
+			"request": {
+				"url": "http://localhost:3000/api/bands/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"oasis\",\n\t\"gender\":\"rock\"\n}"
+				},
+				"description": "Get all bands"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/bands",
+			"request": {
+				"url": "http://localhost:3000/api/bands/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Queen\",\n\t\"gender\":\"British rock \",\n\t\"manager\": \"Jim Beach\",\n\t\"description\": \"Queen are a British rock band that formed in London in 1970...\"\n}"
+				},
+				"description": "Create a new Band"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/bands/Queen",
+			"request": {
+				"url": "http://localhost:3000/api/bands/Queen",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"gender\":\"updated\",\n\t\"manager\": \"updated\",\n\t\"description\": \"updated\"\n}"
+				},
+				"description": "Update a Band"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/bands/Queen",
+			"request": {
+				"url": "http://localhost:3000/api/bands/Queen",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Delete a Band"
+			},
+			"response": []
+		}
+	]
+}
