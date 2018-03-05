@@ -2,19 +2,19 @@
   "swagger": "2.0",
   "info": {
     "description": "Musical Bands Rest API",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "title": "Bands API"
   },
-  "host": "api.uber.com",
+  "host": "localhost:3000",
   "basePath": "/v1",
   "schemes": [
-    "https"
+    "http"
   ],
   "produces": [
     "application/json"
   ],
   "paths": {
-    "/band": {
+    "/bands": {
       "get": {
         "tags": [
           "Bands"
@@ -29,21 +29,24 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Band"
+                "$ref": "#/definitions/band"
               }
             }
           },
           "404": {
-            "description": "Not found",
+            "description": "Not found"
+          },
+          "500": {
+            "description": "Server Error",
             "schema": {
               "$ref": "#/definitions/Error"
             }
-          }
+          }    
         },
         "x-swagger-router-controller": "Bands"
       }
     },
-    "/band/{name}": {
+    "/bands/{name}": {
       "get": {
         "tags": [
           "Bands"
@@ -68,16 +71,21 @@
             }
           },
           "404": {
-            "description": "Not found",
+            "description": "Not found"
+            
+          },
+            "500": {
+            "description": "Server Error",
             "schema": {
               "$ref": "#/definitions/Error"
             }
-          }
+          }    
+            
         },
         "x-swagger-router-controller": "Bands"
       }
     },
-    "/band/count": {
+    "/bands/count": {
       "get": {
         "tags": [
           "Bands"
@@ -103,7 +111,7 @@
         "x-swagger-router-controller": "Bands"
       }
     },
-    "/band/exists/{name}": {
+    "/bands/exists/{name}": {
       "get": {
         "tags": [
           "Bands"
@@ -122,13 +130,13 @@
         ],
         "responses": {
           "200": {
-            "description": "True if Band exists.",
+            "description": "True/False if Band exists.",
             "schema": {
               "type": "boolean"
             }
           },
-          "404": {
-            "description": "Not found",
+          "500": {
+            "description": "Server Error",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -137,7 +145,7 @@
         "x-swagger-router-controller": "Bands"
       }
     },
-    "/band/update/{name}": {
+    "/bands/{name}": {
       "put": {
         "tags": [
           "Bands"
@@ -167,9 +175,15 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created."
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/band"
+            }
           },
+          "404": {
+            "description": "Not found"
+          },    
           "500": {
             "description": "Server Error",
             "schema": {
@@ -180,7 +194,7 @@
         "x-swagger-router-controller": "Bands"
       }
     },
-    "/band/create": {
+    "/bands/": {
       "post": {
         "tags": [
           "Bands"
@@ -198,13 +212,16 @@
             "description": "fields to update of the band.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/band_1"
+              "$ref": "#/definitions/band"
             }
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created."
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/band"
+            }
           },
           "500": {
             "description": "Server Error",
@@ -216,7 +233,7 @@
         "x-swagger-router-controller": "Bands"
       }
     },
-    "/band/delete/{name}": {
+    "/bands/{name}": {
       "delete": {
         "tags": [
           "Bands"
@@ -234,9 +251,12 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Created."
+          "204": {
+            "description": "No Content"
           },
+          "404": {
+            "description": "Not found"
+          },      
           "500": {
             "description": "Server Error",
             "schema": {
@@ -249,7 +269,7 @@
     }
   },
   "definitions": {
-    "Band": {
+    "band": {
       "type": "object",
       "properties": {
         "name": {
@@ -280,37 +300,7 @@
           "type": "string"
         }
       }
-    },
-    "band": {
-      "type": "object",
-      "properties": {
-        "gender": {
-          "type": "string"
-        },
-        "manager": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
-    },
-    "band_1": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "gender": {
-          "type": "string"
-        },
-        "manager": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        }
-      }
     }
+    
   }
 }
